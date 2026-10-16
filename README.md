@@ -107,3 +107,4 @@ The Jenkins agent needs Java 17, Maven 3.9+, Node.js 20+, and npm. If Jenkins ru
 
 ## Report checklist
 Include screenshots of app menu, successful order, order list, Git commit/branch/PR, Jenkins successful stages, and test results. Do not claim a stage is complete unless you have run and captured it.
+#test
