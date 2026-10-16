@@ -1,0 +1,21 @@
+# Optional local database only; Docker application packaging is a later phase.
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: quickbite-mysql
+    environment:
+      MYSQL_DATABASE: quickbite
+      MYSQL_USER: quickbite
+      MYSQL_PASSWORD: quickbite123
+      MYSQL_ROOT_PASSWORD: localroot123
+    ports:
+      - "3306:3306"
+    volumes:
+      - quickbite_mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uquickbite", "-pquickbite123"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+volumes:
+  quickbite_mysql_data:
